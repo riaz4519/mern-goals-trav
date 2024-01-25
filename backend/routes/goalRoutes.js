@@ -1,9 +1,16 @@
+// routes/goalRoutes.js
 import express from 'express'
-const Router = express.Router()
+import {
+  getGoals,
+  setGoal,
+  updateGoal,
+  deleteGoal,
+} from '../controllers/goalController.js'
 
-import { getGoals } from '../controllers/goalController'
+const router = express.Router()
 
-Router.route('/').get(getGoals)
-// Router.route('/').post(createGoal)
+// Define routes
+router.route('/').get(getGoals).post(setGoal)
+router.route('/:id').put(updateGoal).delete(deleteGoal)
 
-export default Router
+export default router
