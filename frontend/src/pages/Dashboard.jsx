@@ -1,26 +1,26 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import GoalForm from '../components/GoalForm'
 const Dashboard = () => {
   const navigate = useNavigate()
 
-  const {user} = useSelector((state) => state.auth)
+  const { user } = useSelector((state) => state.auth)
 
   useEffect(() => {
-
-
-    if(!user) {
-
-      navigate("/login")
-
+    if (!user) {
+      navigate('/login')
     }
-
   }, [user, navigate])
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-    </div>
+    <>
+      <section className="heading">
+        <h1>welcome {user && user.name}</h1>
+        <p>Goal Dashboard</p>
+      </section>
+      <GoalForm />
+    </>
   )
 }
 
