@@ -8,7 +8,7 @@ import User from '../model/userModel.js'
 export const getGoals = asyncHandler(async (req, res) => {
   const goals = await Goal.find({ user: req.user._id })
 
-  res.status(200).json({ goals })
+  res.status(200).json(goals)
 })
 // @desc SET GOALS
 // @route POST /api/goals
